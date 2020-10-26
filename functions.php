@@ -6,7 +6,10 @@ add_action('wp_enqueue_scripts', function(){
 /**
  * Meta 位置显示文章阅读数
  */
-add_action('twentytwenty_end_of_post_meta_list', function(){
+add_action('twentytwenty_end_of_post_meta_list', function($post_id, $post_meta, $location){
+	if ($location != 'single-top') {
+		return;
+	}
 	if (!function_exists('the_views')) {
 		return;
 	}
@@ -17,4 +20,4 @@ add_action('twentytwenty_end_of_post_meta_list', function(){
    <span class="meta-text">{$viewHtml}</span>
 </li>
 HEREDOC;
-});
+}, 10, 3);
