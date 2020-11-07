@@ -1,23 +1,15 @@
 <?php
-add_action('wp_enqueue_scripts', function(){
-	wp_enqueue_style('parent-style', get_template_directory_uri().'/style.css');
-});
+require __DIR__ . '/EditorStyle.php';
+require __DIR__ . '/Style.php';
+require __DIR__ . '/Post.php';
 
-/**
- * Meta 位置显示文章阅读数
- */
-add_action('twentytwenty_end_of_post_meta_list', function($post_id, $post_meta, $location){
-	if ($location != 'single-top') {
-		return;
-	}
-	if (!function_exists('the_views')) {
-		return;
-	}
-	$viewHtml = the_views(false);
-	echo <<<HEREDOC
-<li class="meta-wrapper">
-   <span class="meta-icon">📰️</span>
-   <span class="meta-text">{$viewHtml}</span>
-</li>
-HEREDOC;
-}, 10, 3);
+use com\xingchaovv\chao2020\Style;
+use com\xingchaovv\chao2020\EditorStyle;
+use com\xingchaovv\chao2020\Post;
+
+(new Style());
+(new EditorStyle());
+(new Post());
+
+
+
