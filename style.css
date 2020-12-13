@@ -9,6 +9,17 @@
  License URI: https://www.gnu.org/licenses/gpl-3.0.html
 */
 
+/*	2. Element Base
+/* ---------------------------------------------*---------------------------- */
+
+h1, .heading-size-1 { font-size: 4.2rem; }
+h2, .heading-size-2 { font-size: 3rem; }
+h3, .heading-size-3 { font-size: 2rem; }
+
+/* Post: Archive ------------------------- */
+
+h2.entry-title { font-size: 3rem; }
+
 /* Alignment Classes ------------------------- */
 
 .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
